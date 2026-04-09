@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 40px;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .box {
+            background: #f2f2f2;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .high { color: red; font-weight: bold; }
+        .medium { color: orange; font-weight: bold; }
+        .low { color: green; font-weight: bold; }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Ticket Analysis</h1>
+
+<div class="card">
+    <p><b>Issue:</b> {{ ticket }}</p>
+
+    <div class="box">
+        <p><b>Category:</b> {{ result.category }}</p>
+
+        <p><b>Priority:</b>
+            {% if result.priority == 'High' %}
+                <span class="high">{{ result.priority }}</span>
+            {% elif result.priority == 'Medium' %}
+                <span class="medium">{{ result.priority }}</span>
+            {% else %}
+                <span class="low">{{ result.priority }}</span>
+            {% endif %}
+        </p>
+
+        <p><b>Assigned To:</b> {{ result.assigned }}</p>
+        <p><b>Estimated Time:</b> {{ result.time }}</p>
+    </div>
+
+    <a href="/">Analyze Another</a>
+</div>
+
+<!-- 👨‍💼 Team Workload -->
+<h2>👨‍💼 Team Workload</h2>
+
+<div style="width: 350px; margin: auto;">
+    <div class="box">Billing Team: {{ team_load["Billing Team"] }}</div>
+    <div class="box">Support Team: {{ team_load["Support Team"] }}</div>
+    <div class="box">Technical Team: {{ team_load["Technical Team"] }}</div>
+</div>
+
+<!-- 📋 Ticket History -->
+<h2>📋 Ticket History</h2>
+
+<div style="width: 350px; margin: auto;">
+    {% for t in tickets %}
+    <div class="box">
+        <b>Issue:</b> {{ t.issue }} <br>
+        <b>Category:</b> {{ t.category }} <br>
+
+        <b>Priority:</b>
+        {% if t.priority == 'High' %}
+            <span class="high">{{ t.priority }}</span>
+        {% elif t.priority == 'Medium' %}
+            <span class="medium">{{ t.priority }}</span>
+        {% else %}
+            <span class="low">{{ t.priority }}</span>
+        {% endif %}
+        <br>
+
+        <b>Assigned:</b> {{ t.assigned }}
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

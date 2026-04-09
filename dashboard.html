@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body {
+    background:#0f172a;
+    font-family:Arial;
+    color:white;
+    text-align:center;
+}
+
+.card {
+    background:#1e293b;
+    padding:15px;
+    margin:15px auto;
+    width:450px;
+    border-radius:10px;
+    text-align:left;
+}
+
+a { color:#a78bfa; }
+
+.high {color:red;}
+.medium {color:orange;}
+.low {color:lightgreen;}
+
+.nav a {
+    margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📊 Dashboard</h1>
+
+<div class="nav">
+<a href="/">Home</a>
+<a href="/search">Search</a>
+<a href="/analytics">Analytics</a>
+<a href="/agents">Agents</a>
+</div>
+
+{% for t in tickets %}
+<div class="card">
+<b><a href="/ticket/{{ t.id }}">{{ t.issue }}</a></b><br>
+{{ t.category }}<br>
+
+{% if t.priority == 'High' %}
+<span class="high">High</span>
+{% elif t.priority == 'Medium' %}
+<span class="medium">Medium</span>
+{% else %}
+<span class="low">Low</span>
+{% endif %}
+
+<br>{{ t.assigned }} - {{ t.agent }}
+</div>
+{% endfor %}
+
+</body>
+</html>

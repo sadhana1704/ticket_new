@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#0f172a;color:white;text-align:center;">
+
+<h1>Search</h1>
+
+<form method="POST">
+<input name="query">
+<button>Search</button>
+</form>
+
+{% for t in results %}
+<p><a href="/ticket/{{ t.id }}">{{ t.issue }}</a></p>
+{% endfor %}
+
+<a href="/dashboard">Back</a>
+
+</body>
+</html>

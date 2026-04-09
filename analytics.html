@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analytics</title>
+
+<style>
+body {background:#0f172a;color:white;text-align:center;font-family:Arial;}
+.box {background:#1e293b;padding:20px;margin:10px auto;width:300px;border-radius:10px;}
+</style>
+</head>
+
+<body>
+
+<h1>📊 Analytics</h1>
+
+<div class="box">Total Tickets: {{ tickets|length }}</div>
+<div class="box">High Priority: {{ tickets|selectattr("priority","equalto","High")|list|length }}</div>
+
+<a href="/dashboard">Back</a>
+
+</body>
+</html>

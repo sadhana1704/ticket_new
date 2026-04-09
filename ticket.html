@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ticket</title>
+
+<style>
+body {
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    font-family:Arial;
+}
+
+.card {
+    background:#1e293b;
+    padding:20px;
+    width:400px;
+    margin:auto;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎫 Ticket Details</h1>
+
+<div class="card">
+<p>{{ ticket.issue }}</p>
+<p>{{ ticket.category }}</p>
+<p>{{ ticket.priority }}</p>
+<p>{{ ticket.assigned }}</p>
+<p>{{ ticket.agent }}</p>
+<p>{{ ticket.time }}</p>
+</div>
+
+<br>
+<a href="/dashboard">Back</a>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Ticket System</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+
+.hero {
+    padding:100px 20px;
+    background:linear-gradient(135deg,#1e293b,#7c3aed);
+}
+
+textarea {
+    width:350px;
+    height:120px;
+    border-radius:10px;
+    padding:10px;
+}
+
+button {
+    margin-top:15px;
+    padding:12px 25px;
+    background:#7c3aed;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+a { color:#a78bfa; }
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1>🤖 AI Ticket Routing System</h1>
+
+<form action="/analyze" method="POST">
+<textarea name="ticket" placeholder="Describe your issue..." required></textarea><br>
+<button>Analyze Ticket</button>
+</form>
+
+<br>
+<a href="/dashboard">Go to Dashboard →</a>
+</div>
+
+</body>
+</html>

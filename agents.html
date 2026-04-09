@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#0f172a;color:white;text-align:center;">
+
+<h1>Agents</h1>
+
+{% for team, members in agents.items() %}
+<h3>{{ team }}</h3>
+{% for m in members %}
+<p>{{ m }}</p>
+{% endfor %}
+{% endfor %}
+
+<a href="/dashboard">Back</a>
+
+</body>
+</html>
